@@ -8,8 +8,12 @@ import org.java_websocket.handshake.ServerHandshake;
 
 public class TestTocatWebSocket {
 	public static void main(String[] args) throws URISyntaxException {
-
-		String url = "ws://localhost:8080/WebSocket/chat/demo";
+		
+		Scanner scanner1 = new Scanner(System.in);
+		int roomId = scanner1.nextInt();
+		Scanner scanner2 = new Scanner(System.in);
+		String name = scanner2.nextLine();
+		String url = "ws://localhost:8080/WebSocket/chat/"+roomId+"/"+name;
 		WebSocketClient wc = new WebSocketClient(new URI(url), new Draft_17()) {
 			@Override
 			public void onOpen(ServerHandshake handshakedata) {
